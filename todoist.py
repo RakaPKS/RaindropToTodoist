@@ -31,7 +31,7 @@ def createTasks(bookmarks):
     if project_id:
         try:
             for bookmark in bookmarks:
-                if bookmark['type'] == "article":
+                if bookmark['type'] == "article" or bookmark['type'] == "link":
                     section_id = article_section_id
                 elif bookmark['type'] == "video":
                     section_id = video_section_id

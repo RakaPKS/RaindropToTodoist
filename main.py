@@ -1,7 +1,6 @@
 import json
 import constants
-import raindrop
-import todoist
+from . import raindrop, todoist
 
 # Adds the new bookmarks to the archive
 def updateArchive(filtered_bookmarks, processed_data):

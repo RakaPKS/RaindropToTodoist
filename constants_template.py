@@ -1,7 +1,7 @@
 # Rename this file to constants.py and fill in the values below.
 
 # Define the location where you want to store the archive of your raindrop.io bookmarks to prevent duplicate tasks.
-#ARCHIVEPATH = 
+#ARCHIVEFILENAME = 
 
 GETRAINDROPURL = "https://api.raindrop.io/rest/v1/raindrops/0"
 

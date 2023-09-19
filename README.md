@@ -10,4 +10,4 @@ Pythton script that pulls new bookmarks and add them as tasks into Todoist.
 * todoist_api_python
 
 ## Usage
-Create `constraints.py` using `constraints_template.py`. Then run main.py
+Create `constants.py` using `constants_template.py`. Then run main.py

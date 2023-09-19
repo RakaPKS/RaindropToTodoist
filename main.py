@@ -4,10 +4,17 @@ import constants
 import raindrop
 import todoist
 
+# Function to construct the correct path based on the script's location
+def get_file_path(filename):
+    script_directory = os.path.dirname(os.path.realpath(__file__))
+    return os.path.join(script_directory, filename)
+
 # Adds the new bookmarks to the archive
 def updateArchive(filtered_bookmarks, processed_data):
+    archive_path = get_file_path(constants.ARCHIVEFILENAME)
+
     processed_data['items'].extend(filtered_bookmarks)
-    with open(constants.ARCHIVEPATH, 'w') as archive:
+    with open(archive_path, 'w') as archive:
         json.dump(processed_data, archive, indent=4)
 
 # Finds the new bookmarks
@@ -19,9 +26,7 @@ def findNewBookmarks(response_json):
 
 # Filters bookmarks that have already been processed
 def filterOldBookmarks():
-    # Get the directory of main.py
-    script_directory = os.path.dirname(os.path.realpath(__file__))
-    archive_path = os.path.join(script_directory, constants.ARCHIVEPATH)
+    archive_path = get_file_path(constants.ARCHIVEFILENAME)
 
     processed_data = {}  # Initialize processed_data
     try:

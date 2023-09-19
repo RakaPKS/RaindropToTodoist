@@ -1,3 +1,4 @@
+import os
 import json
 import constants
 from . import raindrop, todoist
@@ -17,8 +18,13 @@ def findNewBookmarks(response_json):
 
 # Filters bookmarks that have already been processed
 def filterOldBookmarks():
+    # Get the directory of main.py
+    script_directory = os.path.dirname(os.path.realpath(__file__))
+    archive_path = os.path.join(script_directory, constants.ARCHIVEPATH)
+
+    processed_data = {}  # Initialize processed_data
     try:
-        with open(constants.ARCHIVEPATH, 'r') as processed_file:
+        with open(archive_path, 'r') as processed_file:
             processed_data = json.load(processed_file)
             processed_titles = {item['title']
                                 for item in processed_data['items']}
